@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './App.module.css';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import Spinner from './Components/UI/Spinner/Spinner';
 
 function App() {
+  // axios.get('https://my-json-server.typicode.com/jubs16/Products/Products')
   return (
     <div className={classes.App}>
       <NavLink className={classes.links} to='/'>Home</NavLink>
