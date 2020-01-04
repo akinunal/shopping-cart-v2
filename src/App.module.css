@@ -1,0 +1,21 @@
+.App {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.links {
+    text-decoration: none;
+    font-size: 140%;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    margin: 15px 70px;
+    background-color: #fff;
+    border-radius: 5px;
+}

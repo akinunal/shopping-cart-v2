@@ -1,0 +1,19 @@
+ion-icon {
+    color: orange;
+    font-size: 32px;
+}
+
+.cartNumber {
+    color: orange;
+    font-size: 70%;
+    border: 0;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.cartLink {
+    display: flex;
+    text-decoration: none;
+}
