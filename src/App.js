@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './App.module.css';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import ProductContainer from './Containers/ProductContainer/ProductContainer';
 import CartButton from './Components/UI/CartButton/CartButton';
 import ProductDetail from './Containers/ProductDetail/ProductDetail';
