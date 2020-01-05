@@ -15,7 +15,7 @@ class ProductContainer extends Component {
           this.props.onFetch(res.data);
           setTimeout(() => {
           this.props.isLoading(false);
-          }, 2000);
+          }, 2500);
         })
         .catch(err => console.log(err));
       }

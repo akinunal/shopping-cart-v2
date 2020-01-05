@@ -16,7 +16,7 @@ const Product = (props) => {
         };
         divSize = { height: '150%' }
     } else {
-        width = { width: '22%' };
+        width = { width: '30%' };
         imgStyle = {
             width: '100%',
             height: '150px'
@@ -26,7 +26,7 @@ const Product = (props) => {
     return (
         props.products.map((el, i) => {
             return (
-                <div style={width} className={classes.products}>
+                <div style={width} className={classes.products} key={i}>
                     <div className={classes.imageBox} style={divSize}>
                         <img src={el.imgUrl} alt='imagePhoto' style={{ ...imgStyle }} className={classes.image} />
                     </div>

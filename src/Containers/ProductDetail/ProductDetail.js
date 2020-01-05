@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import classes from './ProductDetail.module.css';
+import Button from '../../Components/UI/Button/Button';
+import * as actionTypes from '../../store/actions/actions';
 
 class ProductDetail extends Component {
     render() {
@@ -24,10 +26,23 @@ class ProductDetail extends Component {
                         <NavLink className={classes.buttonRed} to={`/products/${this.props.product.name}/red`} />
                         <span className={classes.priceText}>ONLY {this.props.product.price}$</span>
                     </div>
-                    <button className={classes.addtocartButton}>ADD TO CART</button>
+                    <Button onClick={() => this.props.onProductAdded(this.props.product)} />
                 </div>
             </div>
         )
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onProductAdded: (product) => {
+          return dispatch({
+            type: actionTypes.ADD_PRODUCT,
+            payload: {
+              product: product
+            }
+          });
+        }
     }
 }
 
@@ -37,4 +52,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ProductDetail)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)

@@ -3,11 +3,14 @@ import * as actionTypes from '../actions/actions';
 const initialState = {
     products: [],
     selectedItems: [],
-    totalPrice: 0,
     originalSort: [],
     activeProduct: {},
     isLoading: true,
 }
+
+let amount = initialState.selectedItems.reduce((sum, product) => {
+    return sum + product.price
+}, 0)
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -28,8 +31,11 @@ const reducer = (state = initialState, action) => {
                 selectedItems: [...state.selectedItems, action.payload.product]
             }
         case actionTypes.DELETE_PRODUCT:
+            const selectItem = [...state.selectedItems];
+            selectItem.splice(action.payload, 1)
             return {
-                ...state
+                ...state,
+                selectedItems: selectItem
             }
         case actionTypes.ACTIVE_PRODUCT:
             return {
