@@ -1,10 +1,10 @@
 import React from 'react';
-import classes from './Button.module.css';
+import classes from './AddButton.module.css';
 
-const button = props => {
+const addButton = props => {
     return (
         <button className={classes.productButton} onClick={props.onClick}>ADD TO CART</button>
     )
 }
 
-export default button
+export default addButton

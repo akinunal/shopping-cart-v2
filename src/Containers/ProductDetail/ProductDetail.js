@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import classes from './ProductDetail.module.css';
-import Button from '../../Components/UI/Button/Button';
+import Button from '../../Components/UI/AddButton/AddButton';
 import * as actionTypes from '../../store/actions/actions';
 
 class ProductDetail extends Component {
     render() {
         return (
-            <div className={classes.detailBox}>
+            <div className={classes.detailContainer}>
                 <div className={classes.imgBox}>
                     <img src={this.props.product.imgUrl} alt='Shoes'/>
                 </div>

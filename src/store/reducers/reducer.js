@@ -8,10 +8,6 @@ const initialState = {
     isLoading: true,
 }
 
-let amount = initialState.selectedItems.reduce((sum, product) => {
-    return sum + product.price
-}, 0)
-
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.FETCH_PRODUCTS:
@@ -24,7 +20,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.payload
             }
-
         case actionTypes.ADD_PRODUCT:
             return {
                 ...state,
@@ -42,7 +37,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 activeProduct: action.payload
             }
-
         default:
             return state;
     }

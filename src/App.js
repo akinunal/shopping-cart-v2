@@ -5,6 +5,7 @@ import ProductContainer from './Containers/ProductContainer/ProductContainer';
 import CartButton from './Components/UI/CartButton/CartButton';
 import ProductDetail from './Containers/ProductDetail/ProductDetail';
 import Cart from './Containers/Cart/Cart';
+import Invoice from './Containers/Invoice/Invoice';
 
 class App extends React.Component {
 
@@ -16,9 +17,12 @@ class App extends React.Component {
           <CartButton />
         </div>
 
-        <Route path='/' exact component={ProductContainer}/>
-        <Route path='/products/:name' component={ProductDetail}/>
-        <Route path='/cart' component={Cart} />
+        <Switch>
+          <Route path='/' exact component={ProductContainer}/>
+          <Route path='/products/:name' component={ProductDetail}/>
+          <Route path='/cart' component={Cart} />
+          <Route path='/invoice' component={Invoice} />
+        </Switch>
       </div>
     );
   }

@@ -7,3 +7,20 @@
 .noProductText {
     color: red;
 }
+
+.listWrapper {
+    height: 400px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 30%;
+}
+
+.headerText {
+    font-size: 200%;
+    color: orange;
+    margin-bottom: 30px;
+}

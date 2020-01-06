@@ -1,0 +1,9 @@
+.cancelButton {
+    background-color: red;
+    color: black;
+    padding: 15px;
+    font-size: 130%;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 5px;
+}
