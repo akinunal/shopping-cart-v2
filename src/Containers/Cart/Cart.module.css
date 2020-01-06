@@ -1,0 +1,9 @@
+.priceText {
+    font-size: 200%;
+    color: green;
+    margin-top: 15px;
+}
+
+.noProductText {
+    color: red;
+}

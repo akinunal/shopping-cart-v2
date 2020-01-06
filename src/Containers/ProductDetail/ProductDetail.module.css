@@ -1,0 +1,62 @@
+.detailBox {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 80%;
+    justify-content: space-between;
+    padding-top: 30px;
+    flex-wrap: wrap;
+}
+
+.productBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.imgBox {
+    width: 60%;
+}
+
+img {
+    width: 600px;
+    height: 400px;
+}
+
+.buttonBlack {
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 20%;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.buttonBlue {
+    padding: 10px 20px;
+    background-color: blue;
+    border-radius: 20%;
+    margin-right: 10px;
+}
+
+.buttonRed {
+    padding: 10px 20px;
+    background-color: red;
+    color: red;
+    border-radius: 20%;
+    margin-right: 20px;
+}
+
+.addtocartButton {
+    width: 40%;
+    background-color: black;
+    font-size: 200%;
+    color: white;
+    align-self: center;
+    cursor: pointer;
+}
+
+.priceText {
+    color: green;
+    font-size: 200%;
+    font-weight: bold;
+}
