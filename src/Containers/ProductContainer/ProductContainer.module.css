@@ -1,7 +1,11 @@
-.wrapper {
+.productWrapper {
     display: flex;
     margin: auto;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.containerWrapper {
+    margin-top: -10px;
 }

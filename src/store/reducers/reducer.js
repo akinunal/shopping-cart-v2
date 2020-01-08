@@ -37,6 +37,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 activeProduct: action.payload
             }
+        case actionTypes.FILTER_BY_LOWEST:
+            return {
+                ...state,
+                products: state.products.slice().sort((a, b) => a.price > b.price ? 1 : -1)
+            }
+        case actionTypes.FILTER_BY_HIGHEST:
+            return {
+                ...state,
+                products: state.products.slice().sort((a, b) => a.price > b.price ? -1 : 1)
+            }
         default:
             return state;
     }

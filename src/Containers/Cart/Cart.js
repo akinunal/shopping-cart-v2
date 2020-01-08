@@ -8,7 +8,6 @@ import CancelButton from '../../Components/UI/CancelButton/CancelButton';
 class Cart extends Component {
 
     closePageHandler = () => {
-        console.log(this.props);
         this.props.history.push('/')
     }
 

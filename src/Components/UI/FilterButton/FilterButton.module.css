@@ -1,0 +1,7 @@
+.filter {
+    padding: 10px 20px;
+    background-color: rgb(246, 246,246);
+    border: 2px solid rgb(246, 246,246);
+    cursor: pointer;
+    font-size: 125%;
+}

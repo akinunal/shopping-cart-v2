@@ -2,39 +2,42 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import * as actionTypes from '../../store/actions/actions';
+import classes from './ProductContainer.module.css';
 
 import Spinner from '../../Components/UI/Spinner/Spinner';
 import Product from '../../Components/Product/Product';
-import classes from './ProductContainer.module.css';
+import FilterBox from '../../Components/FilterBox/FilterBox';
 import {Lightbox} from 'react-modal-image';
 
 class ProductContainer extends Component {
-
   state = {
-    open: false
+    open: false,
+    activeProduct: null
   }
 
   componentDidMount() {
-        axios.get("https://my-json-server.typicode.com/jubs16/Products/Products")
-        .then(res => {
-          this.props.onFetch(res.data);
-          setTimeout(() => {
-          this.props.isLoading(false);
-          }, 2500);
-        })
-        .catch(err => console.log(err));
+    axios.get("https://my-json-server.typicode.com/jubs16/Products/Products")
+      .then(res => {
+        this.props.onFetch(res.data);
+        setTimeout(() => {
+        this.props.isLoading(false);
+        }, 2500);
+      })
+      .catch(err => console.log(err));
   }
 
   modalHandler = (product) => {
     this.setState({
-        open: true,
-        activeProduct: product
+      open: true,
+      activeProduct: product
     })
-}
+  }
 
   render() {
       return (
-          <div className={classes.wrapper}>
+        <div className={classes.containerWrapper}>
+          <FilterBox />
+          <div className={classes.productWrapper}>
             {this.props.loading ? <Spinner /> : <Product onClick={(el) => {this.modalHandler(el)}} />}
             {this.state.open && (
                     <Lightbox
@@ -45,16 +48,17 @@ class ProductContainer extends Component {
                     />
                 )}
           </div>
-        )
+        </div>
+      )
     }
 }
 
 const mapStateToProps = state => {
-    return {
-      products: state.products,
-      selected: state.selectedItems,
-      loading: state.isLoading
-    };
+  return {
+    products: state.products,
+    selected: state.selectedItems,
+    loading: state.isLoading
+  };
 };
 
 const mapDispatchToProps = dispatch => {
