@@ -6,6 +6,7 @@ const initialState = {
     originalSort: [],
     activeProduct: {},
     isLoading: true,
+    user: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -56,7 +57,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedItems: action.payload
-            }
+            }   
         default:
             return state;
     }

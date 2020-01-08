@@ -71,9 +71,9 @@ class ProductContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    products: state.products,
-    selected: state.selectedItems,
-    loading: state.isLoading
+    products: state.productReducer.products,
+    selected: state.productReducer.selectedItems,
+    loading: state.productReducer.isLoading
   };
 };
 

@@ -1,0 +1,56 @@
+.authButton {
+  padding: 8px 12px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(60,0,36,1) 50%, rgba(2,0,36,1) 100%);
+  border: none;
+  border-radius: 5px;
+  font-size: 100%;
+  width: 30%;
+  align-self: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.loginWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 150px 0 150px;
+}
+
+.signInWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(133,20,75,1) 60%, rgba(2,0,36,1) 100%);
+  color: #85144b;
+  flex-direction: column;
+}
+
+.signInBox {
+  display: flex;
+  flex-direction: column;
+  background-color: #d5d5d5;
+  height: 275px;
+  justify-content: space-evenly;
+  width: 300px;
+  border-radius: 10px 80px 10px 80px;
+  margin-top: 30px;
+}
+
+input[type=text],
+input[type=password] {
+  padding: 8px 5px;
+  border: 2px solid #ccc;
+  margin-top: 15px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.logo {
+  height: 150px;
+  width: auto;
+}

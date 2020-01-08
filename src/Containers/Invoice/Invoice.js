@@ -6,7 +6,6 @@ import Spinner from '../../Components/UI/Spinner/Spinner';
 const Invoice = (props) => {
 
     useEffect(() => {
-        console.log(props.history)
         const timer = setTimeout(() => {
           props.history.push('/');
         }, 3000);

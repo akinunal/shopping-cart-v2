@@ -8,3 +8,7 @@ export const FILTER_BY_LOWEST = 'FILTER_BY_LOWEST';
 export const FILTER_BY_HIGHEST = 'FILTER_BY_HIGHEST';
 export const FILTER_BY_RANDOM = 'FILTER_BY_RANDOM';
 export const FETCH_LIST_FROM_STORAGE = 'FETCH_LIST_FROM_STORAGE';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+

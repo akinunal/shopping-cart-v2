@@ -34,8 +34,8 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     return {
-        selected: state.selectedItems,
-        price: state.selectedItems.reduce((a,b) => {return a + b.price}, 0)
+        selected: state.productReducer.selectedItems,
+        price: state.productReducer.selectedItems.reduce((a,b) => {return a + b.price}, 0)
     }
 }
 

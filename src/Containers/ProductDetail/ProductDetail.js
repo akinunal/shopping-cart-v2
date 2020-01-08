@@ -48,7 +48,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        product: state.activeProduct
+        product: state.productReducer.activeProduct
     }
 }
 

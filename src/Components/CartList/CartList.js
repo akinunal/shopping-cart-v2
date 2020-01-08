@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        selected: state.selectedItems,
+        selected: state.productReducer.selectedItems,
     }
 }
 

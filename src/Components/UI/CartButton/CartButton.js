@@ -17,7 +17,7 @@ const cartButton = (props) => {
 
 const mapStateToProps = state => {
     return {
-      selected: state.selectedItems
+      selected: state.productReducer.selectedItems
     };
 };
 
