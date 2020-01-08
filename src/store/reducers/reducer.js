@@ -47,6 +47,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 products: state.products.slice().sort((a, b) => a.price > b.price ? -1 : 1)
             }
+        case actionTypes.FILTER_BY_RANDOM:
+            return {
+                ...state,
+                products: state.products.slice().sort(() => Math.random() - 0.5)
+            }
+        case actionTypes.FETCH_LIST_FROM_STORAGE:
+            return {
+                ...state,
+                selectedItems: action.payload
+            }
         default:
             return state;
     }

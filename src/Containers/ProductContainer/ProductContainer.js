@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import * as actionTypes from '../../store/actions/actions';
@@ -9,14 +9,29 @@ import Product from '../../Components/Product/Product';
 import FilterBox from '../../Components/FilterBox/FilterBox';
 import {Lightbox} from 'react-modal-image';
 
-class ProductContainer extends Component {
+class ProductContainer extends PureComponent {
   state = {
     open: false,
     activeProduct: null
   }
 
   componentDidMount() {
-    axios.get("https://my-json-server.typicode.com/jubs16/Products/Products")
+    let productsList = localStorage.getItem("products");
+    let selectedProducts = localStorage.getItem("selectedProducts");
+
+    if(selectedProducts) {
+      selectedProducts = JSON.parse(selectedProducts);
+      this.props.onReload(selectedProducts);
+    }
+
+    if(productsList) {
+      productsList = JSON.parse(productsList);
+        this.props.onFetch(productsList);
+        setTimeout(() => {
+          this.props.isLoading(false);
+          }, 2500);
+    } else {
+      axios.get("https://my-json-server.typicode.com/jubs16/Products/Products")
       .then(res => {
         this.props.onFetch(res.data);
         setTimeout(() => {
@@ -24,6 +39,7 @@ class ProductContainer extends Component {
         }, 2500);
       })
       .catch(err => console.log(err));
+    }
   }
 
   modalHandler = (product) => {
@@ -76,6 +92,12 @@ const mapDispatchToProps = dispatch => {
         return dispatch({
           type: actionTypes.LOADING_SPINNER,
           payload: value
+        })
+      },
+      onReload: (products) => {
+        return dispatch({
+          type: actionTypes.FETCH_LIST_FROM_STORAGE,
+          payload: products
         })
       }
     }

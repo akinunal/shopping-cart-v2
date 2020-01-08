@@ -1,12 +1,17 @@
 import React from 'react';
 import {useEffect} from 'react';
+import {withRouter} from 'react-router-dom';
 import Spinner from '../../Components/UI/Spinner/Spinner';
 
 const Invoice = (props) => {
 
-    useEffect(() => setTimeout(() => {
-        props.history.push('/')
-    }, 3000), []);
+    useEffect(() => {
+        console.log(props.history)
+        const timer = setTimeout(() => {
+          props.history.push('/');
+        }, 3000);
+        return () => clearTimeout(timer);
+      }, []);
 
     return (
         <div>
@@ -18,4 +23,4 @@ const Invoice = (props) => {
     )
 }
 
-export default Invoice
+export default withRouter(Invoice)
