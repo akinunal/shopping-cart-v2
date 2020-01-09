@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import * as actionTypes from '../../store/actions/actions';
@@ -9,7 +9,7 @@ import Product from '../../Components/Product/Product';
 import FilterBox from '../../Components/FilterBox/FilterBox';
 import {Lightbox} from 'react-modal-image';
 
-class ProductContainer extends PureComponent {
+class ProductContainer extends Component {
   state = {
     open: false,
     activeProduct: null
@@ -28,8 +28,8 @@ class ProductContainer extends PureComponent {
       productsList = JSON.parse(productsList);
         this.props.onFetch(productsList);
         setTimeout(() => {
-          this.props.isLoading(false);
-          }, 2500);
+          this.props.isLoading(false)
+        }, 2000);
     } else {
       axios.get("https://my-json-server.typicode.com/jubs16/Products/Products")
       .then(res => {

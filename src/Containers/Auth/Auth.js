@@ -1,37 +1,45 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import * as actionTypes from "../../store/actions/actions";
 import { connect } from "react-redux";
 import classes from './Auth.module.css';
 
 class Auth extends Component {
+    
     state = {
-        value: ""
+        name: "",
+        password: ""
     }
 
     onChangeHandler = (event) => {
         this.setState({
-            value: event.target.value
+            name: event.target.value
+        })
+    }
+
+    onPasswordChangeHandler = (event) => {
+        this.setState({
+            password: event.target.value
         })
     }
 
     componentDidMount() {
         const user = JSON.parse(localStorage.getItem("user"));
-
         if (user !== null) {
-            return this.props.onLogin();
+            return this.props.onLogin(user.name);
         }
     }
 
     render() {
         const { onLogin, user, onLogout, children } = this.props;
-        const { value } = this.state
+        const { name, password } = this.state
 
         if (user.name) {
             return (
                 <div>
                     <div className={classes.loginWrapper}>
                         <p>Welcome, {user.name}</p>
-                        <button className={classes.authButton} style={{width: '10%'}} onClick={onLogout}>Logout</button>
+                        <button className={classes.authButton} style={{width: '10%'}} onClick={() => onLogout()}>Logout</button>
                     </div>
                     {children}
                 </div>
@@ -40,22 +48,22 @@ class Auth extends Component {
 
         return (
             <div className={classes.signInWrapper}>
-                <img src='/images/pngguru.com.png' className={classes.logo} />
+                <img src='/images/pngguru.com.png' className={classes.logo} alt='company-logo'/>
                 <div className={classes.signInBox}>
                     <div>
-                        <label for='name'>Your Name:</label>
+                        <label htmlFor='name'>Your Name:</label>
                         <br/>
-                        <input type='text' name='name' onChange={(e) => this.onChangeHandler (e)} placeholder='Please input your name'  autoComplete="new-password"/>
+                        <input type='text' name='name' onChange={(e) => this.onChangeHandler(e)} placeholder='Please input your name'  autoComplete="new-password"/>
                     </div>
                     <div>
-                        <label for='password'>Your Password:</label>
+                        <label htmlFor='password'>Your Password:</label>
                         <br/>
-                        <input type='password' name='password' placeholder='Please input your password' autoComplete="new-password"/>
+                        <input type='password' name='password' onChange={(e) => this.onPasswordChangeHandler(e)} placeholder='Please input your password' autoComplete="new-password"/>
                     </div>
                     <button 
                         className={classes.authButton} 
-                        onClick={onLogin.bind(this, this.state.value)} 
-                        disabled={!value}>
+                        onClick={onLogin.bind(this, name, password)} 
+                        disabled={!name}>
                         Login
                     </button>
                 </div>
@@ -72,8 +80,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      onLogin: (name) => {
-        const user = { name: name };
+      onLogin: (name, password) => {
+        const user = { name: name, password: password };
         localStorage.setItem("user", JSON.stringify(user));
         return dispatch({
           type: actionTypes.LOGIN,
@@ -92,4 +100,4 @@ const mapDispatchToProps = dispatch => {
     }
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Auth))

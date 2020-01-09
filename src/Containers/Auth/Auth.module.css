@@ -50,6 +50,10 @@ input[type=password] {
   border-radius: 10px;
 }
 
+input:focus {
+  outline: none;
+}
+
 .logo {
   height: 150px;
   width: auto;

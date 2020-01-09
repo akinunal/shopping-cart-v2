@@ -24,3 +24,12 @@
     color: orange;
     margin-bottom: 30px;
 }
+
+.clearButton {
+    padding: 5px 10px;
+    font-size: 120%;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 21%;
+    right: 10%;
+}

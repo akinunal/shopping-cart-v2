@@ -19,8 +19,8 @@
     margin-right: 20px;
 }
 
-img {
-    width: 600px;
+.image {
+    width: auto;
     height: 400px;
 }
 
@@ -60,4 +60,11 @@ img {
     color: green;
     font-size: 200%;
     font-weight: bold;
+}
+
+.colorBox {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

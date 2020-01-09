@@ -10,7 +10,7 @@ class ProductDetail extends Component {
         return (
             <div className={classes.detailContainer}>
                 <div className={classes.imgBox}>
-                    <img src={this.props.product.imgUrl} alt='Shoes'/>
+                    <img src={this.props.product.imgUrl} alt='Shoes' className={classes.image}/>
                 </div>
                 <div className={classes.productBox}>
                     <h1>{this.props.product.name}</h1>
@@ -20,10 +20,13 @@ class ProductDetail extends Component {
                         nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
                         in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat c
                         upidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div className={classes.colorBox}>Choose a color: 
-                        <NavLink className={classes.buttonBlack} to={`/products/${this.props.product.name}/black`} />
+                    <div className={classes.colorBox}>
+                    <div>
+                    Choose a color: 
+                    <NavLink className={classes.buttonBlack} to={`/products/${this.props.product.name}/black`} />
                         <NavLink className={classes.buttonBlue} to={`/products/${this.props.product.name}/blue`} />
                         <NavLink className={classes.buttonRed} to={`/products/${this.props.product.name}/red`} />
+                    </div>
                         <span className={classes.priceText}>ONLY {this.props.product.price}$</span>
                     </div>
                     <Button onClick={() => this.props.onProductAdded(this.props.product)} />
